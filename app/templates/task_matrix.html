@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Task Matrix</h1>
+<div class="row">
+    <div class="col-md-3">
+        <h3>Do This Now</h3>
+        <ul id="do-this-now" class="task-list">
+            {% for task in tasks %}
+                {% if task.category == 'Do This Now' %}
+                    <li class="task" data-task-id="{{ task.id }}">{{ task.body }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h3>Do This Later</h3>
+        <ul id="do-this-later" class="task-list">
+            {% for task in tasks %}
+                {% if task.category == 'Do This Later' %}
+                    <li class="task" data-task-id="{{ task.id }}">{{ task.body }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h3>Delegate This</h3>
+        <ul id="delegate-this" class="task-list">
+            {% for task in tasks %}
+                {% if task.category == 'Delegate This' %}
+                    <li class="task" data-task-id="{{ task.id }}">{{ task.body }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h3>Delete This</h3>
+        <ul id="delete-this" class="task-list">
+            {% for task in tasks %}
+                {% if task.category == 'Delete This' %}
+                    <li class="task" data-task-id="{{ task.id }}">{{ task.body }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+{% endblock %}

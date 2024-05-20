@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Welcome, {{ current_user.username }}!</h1>
+    <h2>Your Tasks</h2>
+    <ul class="list-group">
+        {% for task in tasks %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ task.body }} - {{ task.category }} - {{ task.priority }}
+                <div>
+                    {% if not task.completed %}
+                        <a class="btn btn-success btn-sm" href="{{ url_for('main.complete_task', task_id=task.id) }}">Complete</a>
+                    {% endif %}
+                    <a class="btn btn-danger btn-sm" href="{{ url_for('main.delete_task', task_id=task.id) }}">Delete</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <a class="btn btn-primary mt-3" href="{{ url_for('main.add_task') }}">Add a new task</a>
+{% endblock %}
