@@ -36,35 +36,34 @@ A web-based task management application that allows users to create, categorize,
    cd YOUR_REPOSITORY_NAME
 Create and activate a virtual environment:
 
-bash
+   ```bash
 Copy code
 python3 -m venv venv
 source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 Install the dependencies:
 
-bash
+   ```bash
 Copy code
 pip install -r requirements.txt
 Set up environment variables:
 
 Create a .env file in the root directory with the following content:
 
-env
-Copy code
+   ```env
+
 SECRET_KEY=your_secret_key
 DATABASE_URL=sqlite:///site.db
 EMAIL_USER=your_email@example.com
 EMAIL_PASS=your_email_password
 Initialize the database:
 
-bash
-Copy code
+   ```bash
 flask db init
 flask db migrate -m "Initial migration."
 flask db upgrade
 Run the application:
 
-bash
+   ```bash
 Copy code
 flask run
 The application will be available at http://127.0.0.1:5000.
@@ -76,8 +75,9 @@ Categorize tasks by dragging and dropping them into the desired category.
 Manage tasks by marking them as complete or deleting them.
 Project Structure
 arduino
-Copy code
-/YOUR_REPOSITORY_NAME
+
+
+   ```/YOUR_REPOSITORY_NAME
 ├── app
 │   ├── __init__.py
 │   ├── models.py
